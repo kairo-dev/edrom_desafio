@@ -154,7 +154,7 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
             break
         print(f"Custo da andada foi: {custo}")
         return caminho_exemplo
-#eu nao sei fazzer direito esse negocio de mudar de direçao por isso o geito que fiz ficou bem diferenciado 
+#eu nao sei fazer direito esse negocio de mudar de direçao por isso o geito que fiz ficou bem diferenciado 
 #e por isso tambem se voce ir testando tem vez que o robo fica preso mas isso é so um detalhe ksksk
 #quando ele nao fica preso ele ta fazendo o caminho bunitin ta contando o custo e ta aumento o custo com boal então...
 #... teoricamente cheguei no nivel 2 se voce disfarçar o pequeno detalhe que no basico eu errei por nao saber esse...
