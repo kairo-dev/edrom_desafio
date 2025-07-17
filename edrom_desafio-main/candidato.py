@@ -59,10 +59,6 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
     #             >>>  IMPLEMENTAÇÃO DO CANDIDATO   <<<        #
     #                                                          #
     # -------------------------------------------------------- #
-
-    # O código abaixo é um EXEMPLO SIMPLES de um robô que apenas anda para frente.
-    # Ele NÃO desvia de obstáculos e NÃO busca o objetivo.
-    # Sua tarefa é substituir esta lógica simples pelo seu algoritmo A* completo.
     caminho_exemplo = []
     x_atual, y_atual = pos_inicial 
     x_obg, y_obg = pos_objetivo
