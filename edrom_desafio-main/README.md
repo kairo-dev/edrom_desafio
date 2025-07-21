@@ -1,7 +1,7 @@
 # Desafio Individual EDROM - Robô A*
 # ATT feita domingo
 ### Eita codigo dificil ksksk tentei fazer de mais algums jeitos mas não melhorei muito, mesmo assistindo algums videos desse algoritimo A* e videos de programação em pygame não consegui melhorar o codigo o melhorsin foi esse primeiro codigo mesmo o robo ficando preso de vez enquando ksksk
-### As outras tentativas que fiz foi essa abaixo com direções mas o robo nem moveu de lugar por algum motivo skks (obs agora att de segunda que vi o motivo nao funcionou pq eu nao pus o return com o caminho kskskskks mas vou deixar do meu geito mesmo porque esse de direção nao puz muita fé)
+### As outras tentativas que fiz foi essa abaixo com direções mas o robo nem moveu de lugar por algum motivo skks (obs agora na att de segunda que vi o motivo nao funcionou pq eu nao pus o return com o caminho kskskskks mas vou deixar do meu geito mesmo porque esse de direção nao puz muita fé)
  melhor_caminho= []
     x_atual, y_atual = pos_inicial 
     x_obg, y_obg = pos_objetivo
