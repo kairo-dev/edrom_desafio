@@ -1,4 +1,5 @@
 # Desafio Individual EDROM - Robô A*
+# ATT feita domingo
 ### Eita codigo dificil ksksk tentei fazer de mais algums jeitos mas não melhorei muito, mesmo assistindo algums videos desse algoritimo A* e videos de programação em pygame não consegui melhorar o codigo o melhorsin foi esse primeiro codigo mesmo o robo ficando preso de vez enquando ksksk
 ### As outras tentativas que fiz foi essa abaixo com direções mas o robo nem moveu de lugar por algum motivo skks
  melhor_caminho= []
@@ -39,3 +40,7 @@
                 melhor_caminho.append((x_atual,y_atual))
         break
 ### resumindo me diverti tentando fazer esse codigo mas não consegui fazer certin, mas curti ter aprendido esse treko de pygame vou tentar fazer uma coisa ou outra nele kskskks
+## erros por enquanto o codigo testando umas 5 vezes ele falha uma ficando preso, nao anda na diagonal e nao usei o f=g+h pra fazer ele escolher o melhor caminho e esse if da bola ta horroroso kskksks
+# ATT segunda
+### melhorei bastante o codigo deixando ele menor adicionei andar na diagonal e diminui bastante os erros dele ficando preso, antes em 5 testes ele falhava um agora tem que testar umas 15 vez pra falhar uma e melhorei o if da bola aumentando a penalidade
+
