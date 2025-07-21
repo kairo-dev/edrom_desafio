@@ -3,6 +3,7 @@
 # AREAS DE INTERESSE: [Estrutura,Movimento,Behavior]
 
 # Você pode importar as bibliotecas que julgar necessárias.
+# eu sou brabo nem precisei nao vlw chefia skks
 
 def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altura_grid, tem_bola=False):
     """
@@ -27,31 +28,23 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
               Exemplo de retorno: [(1, 2), (1, 3), (2, 3)]
 
     ---------------------------------------------------------------------------------
-    REQUISITOS DO DESAFIO (AVALIADOS EM NÍVEIS):
+    REQUISITOS QUE EU CUMPRI OU NAO KSKSK (AVALIADOS EM NÍVEIS):
     ---------------------------------------------------------------------------------
     [NÍVEL BÁSICO: A* Comum com Diagonal]
-    O Algoritmo deve chegar até a bola e depois ir até o gol (desviando dos adversários) 
-    considerando custos diferentes pdra andar reto (vertical e horizontal) e para andar em diagonal
+    feito mais ou menos pq se tu testar umas 15 vez uma ele fica preso e eu nao fiz usando esse
+    f=g+h pq nao sei fazer mesmo
 
     [NÍVEL 1: Custo de Rotação]
-    O custo de um passo não é apenas a distância. Movimentos que exigem que o robô
-    mude de direção devem ser penalizados. Considere diferentes penalidades para:
-    - Curvas suaves (ex: reto -> diagonal).
-    - Curvas fechadas (ex: horizontal -> vertical).
-    - Inversões de marcha (180 graus).
+    feito
 
     [NÍVEL 2: Custo por Estado]
-    O comportamento do robô deve mudar se ele estiver com a bola. Quando `tem_bola`
-    for `True`, as penalidades (especialmente as de rotação do Nível 1) devem ser
-    AINDA MAIORES. O robô precisa ser mais "cuidadoso" ao se mover com a bola.
+    feito quer dizer mais ou menos feito pq o custo ser maior nao muda o comportamento ja que nao
+    fiz esse f = g + h pq realmente nao entendi e nao sei fazer mesmo vendo algums videos
 
     [NÍVEL 3: Zonas de Perigo]
-    As células próximas aos `obstaculos` são consideradas perigosas. Elas não são
-    proibidas, mas devem ter um custo adicional para desencorajar o robô de passar
-    por elas, a menos que seja estritamente necessário ou muito vantajoso.
+    quem conseguiu fazer isso aki e brabo eu nao consegui skksks
 
-    DICA: Um bom algoritmo A* é flexível o suficiente para que os custos de movimento
-    (g(n)) possam ser calculados dinamicamente, incorporando todas essas regras.
+    DICA: nao entendi a dica infelizmente ksksks
     """
 
     # -------------------------------------------------------- #
@@ -59,99 +52,96 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
     #             >>>  IMPLEMENTAÇÃO DO CANDIDATO   <<<        #
     #                                                          #
     # -------------------------------------------------------- #
-    caminho_exemplo = []
+    melhor_caminho_talvezksksk = []
     x_atual, y_atual = pos_inicial 
     x_obg, y_obg = pos_objetivo
     custo = 0
     penalidade = 1
-    penalidade2 = 2
+    penalidade2 = 3       # aki pus todas as variavel que eu usei durante o codigo
+    penalidadedig = 2
     ktchau= tem_bola
-    if ktchau== True:    #com bola a penalidade aumenta
-        penalidade= penalidade*2
-        penalidade2= penalidade2*2
-        while x_atual != x_obg or y_atual != y_obg:  #enquanto a posiçao nao for igual a do objetivo ele vai andando
-            if x_atual< x_obg:
-                x_atual= x_atual+1
-                custo +=penalidade
-                if (x_atual,y_atual) in obstaculos:  #topo com um objeto ele muda de direção e aumenta ai o custo
-                    caminho_exemplo.append((x_atual-1,y_atual+1))
-                    custo+=penalidade2
-                    y_atual=y_atual+1
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
-            elif x_atual> x_obg:
-                x_atual= x_atual-1
-                custo +=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual+1,y_atual+1))
-                    custo+=penalidade2
-                    y_atual=y_atual+1
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
-            elif y_atual< y_obg:
-                y_atual= y_atual+1
-                custo+=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual-1,y_atual-1))
-                    x_atual=x_atual-1
-                    custo+=penalidade2
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
+    if (ktchau == True):       # pra aumentar a penalidade com a bola
+        penalidade = penalidade*2
+        penalidade2 = penalidade2*2
+        penalidadedig = penalidadedig*2
+    else :
+        pass
+    while x_atual != x_obg or y_atual != y_obg:   #enquanto ele nao chegar no objetivo vai andando
+        if x_atual<x_obg and y_atual>y_obg:       #aki e pra andar na diagonal
+            x_atual+=1
+            y_atual-=1
+            custo+= penalidadedig
+            if (x_atual,y_atual) in obstaculos:     #se onde ele for andar ele muda o caminho mas infelizmente nao ta prft
+                melhor_caminho_talvezksksk.append((x_atual,y_atual+1))
+                custo+=penalidade2
+                y_atual=y_atual+1
             else:
-                y_atual= y_atual-1
-                custo+=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual-1,y_atual+1))
-                    custo+=penalidade2
-                    x_atual=x_atual-1
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
-            break
-        print(f"Custo da andada foi: {custo}")   #printa o custo da andada porque por algum motivo nao ta somando o custo ksksksk
-        return caminho_exemplo
-    else :        #tudo denovo com a penalidade menor pq ta sem bola
-        while x_atual != x_obg or y_atual != y_obg:
-            if x_atual< x_obg:
-                x_atual= x_atual+1
-                custo +=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual-1,y_atual-1))
-                    custo+=penalidade2
-                    y_atual=y_atual-1
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
-            elif x_atual> x_obg:
-                x_atual= x_atual-1
-                custo +=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual+1,y_atual-1))
-                    custo+=penalidade2
-                    y_atual=y_atual-1
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
-            elif y_atual< y_obg:
-                y_atual= y_atual+1
-                custo+=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual-1,y_atual-1))
-                    x_atual=x_atual-1
-                    custo+=penalidade2
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))    # ai pra baixo varios elif pra varias diagonais
+        elif x_atual<x_obg and y_atual<y_obg:   
+            x_atual+=1
+            y_atual+=1
+            custo+=penalidadedig
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual-1))
+                custo+=penalidade2
+                y_atual=y_atual-1
             else:
-                y_atual= y_atual-1
-                custo+=penalidade
-                if (x_atual,y_atual) in obstaculos:
-                    caminho_exemplo.append((x_atual-1,y_atual+1))
-                    custo+=penalidade2
-                    x_atual=x_atual-1
-                else:
-                    caminho_exemplo.append((x_atual,y_atual))
-            break
-        print(f"Custo da andada foi: {custo}")
-        return caminho_exemplo
-#eu nao sei fazer direito esse negocio de mudar de direçao por isso o geito que fiz ficou bem diferenciado 
-#e por isso tambem se voce ir testando tem vez que o robo fica preso mas isso é so um detalhe ksksk
-#quando ele nao fica preso ele ta fazendo o caminho bunitin ta contando o custo e ta aumento o custo com bola então...
-#... teoricamente cheguei no nivel 2 se voce disfarçar o pequeno detalhe que no basico eu errei por nao saber esse...
-#... treko de f(x)baseado no custo e coisa e tal kskskks
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        elif x_atual>x_obg and y_atual>y_obg:
+            x_atual-=1
+            y_atual-=1
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual+1,y_atual))
+                custo+=penalidade2
+                x_atual=x_atual+1
+            else:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        elif x_atual>x_obg and y_atual<y_obg:
+            x_atual-=1
+            y_atual+=1
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual+1,y_atual))
+                custo+=penalidade2
+                x_atual=x_atual+1
+            else:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        elif x_atual< x_obg:     #aki ele começa a andar reto se precisar continuando a mudar a direçao se tiver obstaculo
+            x_atual= x_atual+1
+            custo +=penalidade
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual-1,y_atual+1))
+                custo+=penalidade2
+                y_atual=y_atual+1
+            else:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        elif x_atual> x_obg:
+            x_atual= x_atual-1
+            custo +=penalidade
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual+1,y_atual+1))
+                custo+=penalidade2
+                y_atual=y_atual+1
+            else:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        elif y_atual< y_obg:
+            y_atual= y_atual+1
+            custo+=penalidade
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual-1,y_atual-1))
+                x_atual=x_atual-1
+                y_atual=y_atual-1
+                custo+=penalidade2
+            else:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        else:
+            y_atual= y_atual-1
+            custo+=penalidade
+            if (x_atual,y_atual) in obstaculos:
+                melhor_caminho_talvezksksk.append((x_atual-1,y_atual+1))
+                custo+=penalidade2
+                x_atual=x_atual-1
+            else:
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))
+        break
+    print(f"Custo da andada foi: {custo}")   #printa o custo da andada pq por algum motivo nao ta somando
+    return melhor_caminho_talvezksksk   #manda os passos pro simulador
