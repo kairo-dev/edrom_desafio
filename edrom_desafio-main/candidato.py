@@ -127,9 +127,8 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
             y_atual= y_atual+1
             custo+=penalidade
             if (x_atual,y_atual) in obstaculos:
-                melhor_caminho_talvezksksk.append((x_atual-1,y_atual-1))
+                melhor_caminho_talvezksksk.append((x_atual-1,y_atual))
                 x_atual=x_atual-1
-                y_atual=y_atual-1
                 custo+=penalidade2
             else:
                 melhor_caminho_talvezksksk.append((x_atual,y_atual))
@@ -137,7 +136,7 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
             y_atual= y_atual-1
             custo+=penalidade
             if (x_atual,y_atual) in obstaculos:
-                melhor_caminho_talvezksksk.append((x_atual-1,y_atual+1))
+                melhor_caminho_talvezksksk.append((x_atual-1,y_atual))
                 custo+=penalidade2
                 x_atual=x_atual-1
             else:
