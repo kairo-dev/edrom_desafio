@@ -45,5 +45,5 @@
 ### melhorei bastante o codigo deixando ele menor adicionei andar na diagonal e diminui bastante os erros dele ficando preso, antes em 5 testes ele falhava um agora tem que testar umas 15 vez pra falhar uma e melhorei o if da bola aumentando a penalidade
 
 # att de quarta
-### a mais o prazo nao e so terça? isso é um mero detalhe ksksks (inclusive deveriam pensar e que e uma baita qualidade mesmo depois da entrega do trabalho o caba ta se esforçando pra deixar o trabalho melhor) continuando o problema do robo ficando preso resolvido hehehe agora ele nao fica mais preso os erros agora sao apenas o de nao ter usado f g e h e quando o robo muda de caminho por causa de um obstaculo ele as vezaas ele entra num obstaculo
+### a mais o prazo nao e so terça? isso é um mero detalhe ksksks (inclusive deveriam pensar que é uma baita qualidade mesmo depois da entrega do trabalho o caba ta se esforçando pra deixar o trabalho melhor) continuando kskks o problema do robo ficando preso resolvido hehehe agora ele nao fica mais preso os erros agora sao apenas o de nao ter usado f g e h e quando o robo muda de caminho por causa de um obstaculo ele as vezes ele entra num obstaculo
 
