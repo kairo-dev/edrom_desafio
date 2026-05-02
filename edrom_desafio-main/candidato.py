@@ -27,7 +27,6 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
               Exemplo de retorno: [(1, 2), (1, 3), (2, 3)]
 
     ---------------------------------------------------------------------------------
-    REQUISITOS QUE EU CUMPRI OU NAO KSKSK (AVALIADOS EM NÍVEIS):
     ---------------------------------------------------------------------------------
     
     """
