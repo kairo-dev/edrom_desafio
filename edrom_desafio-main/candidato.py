@@ -3,7 +3,6 @@
 # AREAS DE INTERESSE: [Estrutura,Movimento,Behavior]
 
 # Você pode importar as bibliotecas que julgar necessárias.
-# eu sou brabo nem precisei nao vlw chefia skks
 
 def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altura_grid, tem_bola=False):
     """
