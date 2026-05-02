@@ -30,21 +30,7 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
     ---------------------------------------------------------------------------------
     REQUISITOS QUE EU CUMPRI OU NAO KSKSK (AVALIADOS EM NÍVEIS):
     ---------------------------------------------------------------------------------
-    [NÍVEL BÁSICO: A* Comum com Diagonal]
-    feito mais ou menos pq se tu testar umas 15 vez uma ele fica preso e eu nao fiz usando esse
-    f=g+h pq nao sei fazer mesmo
-
-    [NÍVEL 1: Custo de Rotação]
-    feito
-
-    [NÍVEL 2: Custo por Estado]
-    feito quer dizer mais ou menos feito pq o custo ser maior nao muda o comportamento ja que nao
-    fiz esse f = g + h pq realmente nao entendi e nao sei fazer mesmo vendo algums videos
-
-    [NÍVEL 3: Zonas de Perigo]
-    quem conseguiu fazer isso aki e brabo eu nao consegui skksks
-
-    DICA: nao entendi a dica infelizmente ksksks
+    
     """
 
     # -------------------------------------------------------- #
@@ -57,26 +43,26 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
     x_obg, y_obg = pos_objetivo
     custo = 0
     penalidade = 1
-    penalidade2 = 3       # aki pus todas as variavel que eu usei durante o codigo
+    penalidade2 = 3       
     penalidadedig = 2
     ktchau= tem_bola
-    if (ktchau == True):       # pra aumentar a penalidade com a bola
+    if (ktchau == True):      
         penalidade = penalidade*2
         penalidade2 = penalidade2*2
         penalidadedig = penalidadedig*2
     else :
         pass
-    while x_atual != x_obg or y_atual != y_obg:   #enquanto ele nao chegar no objetivo vai andando
-        if x_atual<x_obg and y_atual>y_obg:       #aki e pra andar na diagonal
+    while x_atual != x_obg or y_atual != y_obg:   
+        if x_atual<x_obg and y_atual>y_obg:      
             x_atual+=1
             y_atual-=1
             custo+= penalidadedig
-            if (x_atual,y_atual) in obstaculos:     #se onde ele for andar ele muda o caminho mas infelizmente nao ta prft
+            if (x_atual,y_atual) in obstaculos:    
                 melhor_caminho_talvezksksk.append((x_atual,y_atual+1))
                 custo+=penalidade2
                 y_atual=y_atual+1
             else:
-                melhor_caminho_talvezksksk.append((x_atual,y_atual))    # ai pra baixo varios elif pra varias diagonais
+                melhor_caminho_talvezksksk.append((x_atual,y_atual))    
         elif x_atual<x_obg and y_atual<y_obg:   
             x_atual+=1
             y_atual+=1
@@ -105,7 +91,7 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
                 x_atual=x_atual+1
             else:
                 melhor_caminho_talvezksksk.append((x_atual,y_atual))
-        elif x_atual< x_obg:     #aki ele começa a andar reto se precisar continuando a mudar a direçao se tiver obstaculo
+        elif x_atual< x_obg:     
             x_atual= x_atual+1
             custo +=penalidade
             if (x_atual,y_atual) in obstaculos:
@@ -142,5 +128,5 @@ def encontrar_caminho(pos_inicial, pos_objetivo, obstaculos, largura_grid, altur
             else:
                 melhor_caminho_talvezksksk.append((x_atual,y_atual))
         break
-    print(f"Custo da andada foi: {custo}")   #printa o custo da andada pq por algum motivo nao ta somando
-    return melhor_caminho_talvezksksk   #manda os passos pro simulador
+    print(f"Custo da andada foi: {custo}")   
+    return melhor_caminho_talvezksksk  
